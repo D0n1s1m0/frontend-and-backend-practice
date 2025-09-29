@@ -1037,3 +1037,9 @@ body::before {
     .form-group select,
     .form-group textarea {
         padding: 14px 18
+ }
+    
+    .submit-btn {
+        padding: 16px 30px;
+    }
+}
