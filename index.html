@@ -25,9 +25,13 @@
 <div class="content">
 <div class="profile-header">
 <h1 class="profile-title">Информация об авторе</h1>
+<div class="profile-content">
 <img class="profile-photo" src="images/photo.png" alt="Фото автора">
+<div class="profile-info">
 <h2 class="profile-name">Онучин Михаил Сергеевич</h2>
 <p class="profile-group">Учебная группа: ЭФБО-15-24</p>
+</div>
+</div>
 </div>
 
 <div class="about-me">
@@ -59,13 +63,40 @@
 <p>Онучин Михаил Сергеевич | ЭФБО-15-24</p>
 </div>
 </div>
+
+<script>
+// JavaScript для создания падающих звезд
+function createStars() {
+    const starsContainer = document.createElement('div');
+    starsContainer.className = 'stars-container';
+    document.body.appendChild(starsContainer);
+
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.width = Math.random() * 3 + 1 + 'px';
+            star.style.height = star.style.width;
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            starsContainer.appendChild(star);
+
+            // Удаляем звезду после анимации
+            setTimeout(() => {
+                star.remove();
+            }, parseFloat(star.style.animationDuration) * 1000 + 1000);
+        }, i * 500);
+    }
+}
+
+// Запускаем создание звезд при загрузке и каждые 10 секунд
+document.addEventListener('DOMContentLoaded', function() {
+    createStars();
+    setInterval(createStars, 10000);
+});
+</script>
 </body>
 </html>
-
-<h3 class="experience-title">Фермер</h3>
-
-
-
-
 
 
