@@ -1,6 +1,6 @@
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
 * {
-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -13,18 +13,18 @@ body {
 
 /* ===== КОНТЕЙНЕР СТРАНИЦЫ ===== */
 .page-container {
-max-width: 1200px;
-margin: 0 auto;
+    max-width: 1200px;
+    margin: 0 auto;
     background: white;
-min-height: 100vh;
+    min-height: 100vh;
     box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
 
-/* ===== ШАПКА =====h */
+/* ===== ШАПКА ===== */
 .header {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-color: white;
-text-align: center;
+    color: white;
+    text-align: center;
     padding: 30px;
     font-size: 28px;
     font-weight: 300;
@@ -41,18 +41,18 @@ text-align: center;
     list-style: none;
     margin: 0;
     padding: 0;
-display: flex;
-justify-content: center;
+    display: flex;
+    justify-content: center;
     gap: 25px;
 }
 
 .nav-item {
-margin: 0;
+    margin: 0;
 }
 
 .nav-link {
-color: white;
-text-decoration: none;
+    color: white;
+    text-decoration: none;
     padding: 12px 25px;
     border-radius: 25px;
     transition: all 0.3s ease;
@@ -73,13 +73,13 @@ text-decoration: none;
 
 /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
 .profile-header {
-text-align: center;
+    text-align: center;
     margin-bottom: 40px;
 }
 
 .profile-title {
     font-size: 32px;
-color: #2c3e50;
+    color: #2c3e50;
     margin-bottom: 10px;
     font-weight: 300;
 }
@@ -88,7 +88,7 @@ color: #2c3e50;
     width: 220px;
     height: 280px;
     border-radius: 15px;
-object-fit: cover;
+    object-fit: cover;
     margin: 20px auto;
     border: 4px solid #667eea;
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
@@ -96,14 +96,14 @@ object-fit: cover;
 
 .profile-name {
     font-size: 24px;
-color: #2c3e50;
+    color: #2c3e50;
     margin: 10px 0;
     font-weight: 500;
 }
 
 .profile-group {
     font-size: 18px;
-color: #7f8c8d;
+    color: #7f8c8d;
     margin: 5px 0;
 }
 
@@ -119,16 +119,16 @@ color: #7f8c8d;
 
 /* ===== НАВЫКИ ===== */
 .skills-container {
-display: flex;
+    display: flex;
     justify-content: center;
-flex-wrap: wrap;
+    flex-wrap: wrap;
     gap: 15px;
     margin: 30px 0;
 }
 
 .skill-tag {
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-color: white;
+    color: white;
     padding: 12px 25px;
     border-radius: 25px;
     font-weight: 600;
@@ -149,7 +149,7 @@ color: white;
 
 .section-title {
     font-size: 28px;
-color: #2c3e50;
+    color: #2c3e50;
     text-align: center;
     margin-bottom: 30px;
     font-weight: 300;
@@ -171,7 +171,7 @@ color: #2c3e50;
 
 .experience-title {
     font-size: 20px;
-color: #2c3e50;
+    color: #2c3e50;
     margin: 0 0 10px 0;
     font-weight: 600;
 }
@@ -199,13 +199,13 @@ color: #2c3e50;
 }
 
 .news-item:hover {
-transform: translateY(-5px);
+    transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .news-title {
     font-size: 24px;
-color: #2c3e50;
+    color: #2c3e50;
     margin: 0 0 15px 0;
     font-weight: 600;
 }
@@ -214,7 +214,7 @@ color: #2c3e50;
     color: #95a5a6;
     font-size: 14px;
     margin-bottom: 15px;
-border-bottom: 1px solid #ecf0f1;
+    border-bottom: 1px solid #ecf0f1;
     padding-bottom: 10px;
 }
 
@@ -226,7 +226,7 @@ border-bottom: 1px solid #ecf0f1;
 
 /* ===== СТИЛИ ДЛЯ ТОВАРОВ ===== */
 .products-grid {
-display: grid;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 30px;
@@ -235,7 +235,7 @@ display: grid;
 .product-card {
     background: white;
     border-radius: 15px;
-overflow: hidden;
+    overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     text-align: center;
@@ -247,7 +247,9 @@ overflow: hidden;
 }
 
 .product-image {
-@@ -253,135 +291,56 @@ body {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .product-info {
@@ -256,20 +258,20 @@ overflow: hidden;
 
 .product-name {
     font-size: 18px;
-color: #2c3e50;
+    color: #2c3e50;
     margin: 0 0 10px 0;
     font-weight: 600;
 }
 
 .product-price {
     font-size: 20px;
-color: #e74c3c;
+    color: #e74c3c;
     font-weight: 700;
 }
 
 /* ===== СТИЛИ ДЛЯ КОНТАКТОВ ===== */
 .contacts-container {
-display: grid;
+    display: grid;
     gap: 30px;
     margin-top: 30px;
 }
@@ -279,13 +281,13 @@ display: grid;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-text-align: center;
+    text-align: center;
     border-left: 5px solid #27ae60;
 }
 
 .contact-title {
     font-size: 20px;
-color: #2c3e50;
+    color: #2c3e50;
     margin: 0 0 15px 0;
     font-weight: 600;
 }
@@ -298,13 +300,13 @@ color: #2c3e50;
 
 .contact-button {
     background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-color: white;
-border: none;
+    color: white;
+    border: none;
     padding: 15px 30px;
     border-radius: 25px;
     font-size: 16px;
     font-weight: 600;
-cursor: pointer;
+    cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 10px;
 }
