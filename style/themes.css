@@ -1,1 +1,131 @@
+/* ===== СВЕТЛАЯ ТЕМА ===== */
+.theme-light {
+  /* Цветовая палитра */
+  --color-primary: #667eea;
+  --color-primary-light: #8a9eff;
+  --color-primary-dark: #764ba2;
+  --color-secondary: #f093fb;
+  --color-accent: #ff6b6b;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-danger: #e74c3c;
+  
+  /* Текст */
+  --color-text: #2c3e50;
+  --color-text-light: #546e7a;
+  --color-text-muted: #78909c;
+  --color-text-dark: #1a237e;
+  
+  /* Фон */
+  --color-bg: rgba(255, 255, 255, 0.95);
+  --color-bg-light: rgba(248, 250, 252, 0.9);
+  --color-bg-dark: rgba(241, 245, 249, 0.95);
+  --color-bg-card: rgba(255, 255, 255, 0.9);
+  
+  /* Границы */
+  --color-border: rgba(102, 126, 234, 0.3);
+  --color-border-light: rgba(102, 126, 234, 0.2);
+  --color-border-dark: rgba(102, 126, 234, 0.5);
+  
+  /* Тени */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 15px 30px rgba(0, 0, 0, 0.2);
+  --shadow-primary: 0 0 20px rgba(102, 126, 234, 0.3);
+}
 
+/* Фон для светлой темы */
+.theme-light body {
+  background: 
+      radial-gradient(ellipse at center, #f8fafc 0%, #e2e8f0 50%, #f8fafc 100%),
+      radial-gradient(ellipse at 20% 80%, #c7d2fe 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, #ddd6fe 0%, transparent 50%),
+      radial-gradient(ellipse at 40% 40%, #e0e7ff 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Звезды для светлой темы */
+.theme-light body::before {
+  background: 
+      radial-gradient(2px 2px at 20% 30%, rgba(102, 126, 234, 0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 40% 70%, rgba(102, 126, 234, 0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 20%, rgba(102, 126, 234, 0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 50%, rgba(102, 126, 234, 0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 10% 80%, rgba(102, 126, 234, 0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 10%, rgba(102, 126, 234, 0.3) 0%, transparent 100%);
+}
+
+.theme-light body::after {
+  background: 
+      radial-gradient(1px 1px at 15% 25%, rgba(102, 126, 234, 0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 75%, rgba(102, 126, 234, 0.2) 0%, transparent 100%),
+      radial-gradient(2px 2px at 65% 15%, rgba(102, 126, 234, 0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 45%, rgba(102, 126, 234, 0.3) 0%, transparent 100%);
+}
+
+/* ===== ТЕМНАЯ ТЕМА (по умолчанию) ===== */
+.theme-dark {
+  /* Цветовая палитра */
+  --color-primary: #667eea;
+  --color-primary-light: #8a9eff;
+  --color-primary-dark: #764ba2;
+  --color-secondary: #f093fb;
+  --color-accent: #ff6b6b;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-danger: #e74c3c;
+  
+  /* Текст */
+  --color-text: #e6e9ff;
+  --color-text-light: #a8b1ff;
+  --color-text-muted: #8a9eff;
+  --color-text-dark: #0c0e2a;
+  
+  /* Фон */
+  --color-bg: rgba(13, 19, 33, 0.85);
+  --color-bg-light: rgba(26, 35, 58, 0.8);
+  --color-bg-dark: rgba(13, 19, 33, 0.95);
+  --color-bg-card: rgba(26, 35, 58, 0.8);
+  
+  /* Границы */
+  --color-border: rgba(102, 126, 234, 0.3);
+  --color-border-light: rgba(102, 126, 234, 0.2);
+  --color-border-dark: rgba(102, 126, 234, 0.5);
+  
+  /* Тени */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 15px 30px rgba(0, 0, 0, 0.4);
+  --shadow-primary: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Фон для темной темы */
+.theme-dark body {
+  background: 
+      radial-gradient(ellipse at center, #0c0e2a 0%, #1a1f3a 50%, #0c0e2a 100%),
+      radial-gradient(ellipse at 20% 80%, #3a1f5d 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, #1f3a5d 0%, transparent 50%),
+      radial-gradient(ellipse at 40% 40%, #2a1f5d 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Звезды для темной темы */
+.theme-dark body::before {
+  background: 
+      radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(2px 2px at 40% 70%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 10% 80%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.4) 0%, transparent 100%);
+}
+
+.theme-dark body::after {
+  background: 
+      radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 75%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 65% 15%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 45%, rgba(255,255,255,0.4) 0%, transparent 100%);
+}
