@@ -11,13 +11,13 @@
     <div class="page">
         <header class="header">
             <div class="header__container">
-                <h1 class="header__title">Мое портфолио</h1>
+                <h1 class="header__title">Портфолио студента</h1>
                 <button class="theme-switcher" id="themeSwitcher" aria-label="Переключить тему">
                     <span class="theme-switcher__icon"></span>
                 </button>
             </div>
         </header>
-        
+
         <nav class="nav">
             <ul class="nav__list">
                 <li class="nav__item">
@@ -37,60 +37,183 @@
                 </li>
             </ul>
         </nav>
-        
+
         <main class="main">
+            <!-- Profile Section -->
             <section class="profile">
-                <h2 class="profile__title">Мой профиль</h2>
+                <h2 class="profile__title">Онучин Михаил Сергеевич</h2>
                 <div class="profile__content">
-                    <img src="images/profile.jpg" alt="Фото профиля" class="profile__photo">
+                    <img src="images/photo.png" alt="Фото автора" class="profile__photo">
                     <div class="profile__info">
-                        <h3 class="profile__name">Иван Иванов</h3>
-                        <p class="profile__group">Группа: ПРО-42</p>
+                        <h3 class="profile__name">Онучин Михаил Сергеевич</h3>
+                        <p class="profile__group">
+                            <i class="bi bi-bookmark-check-fill"></i>
+                            Студент группы ЭФБО-15-24
+                        </p>
+                        <p>Факультет информационных технологий, специальность "Веб-разработка"</p>
+                        <div class="skills__list">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C++</span>
+                        </div>
                     </div>
                 </div>
             </section>
-            
+
+            <!-- About Section -->
             <section class="about">
                 <h2 class="about__title">Обо мне</h2>
                 <p class="about__text">
-                    Я начинающий веб-разработчик с passion к созданию современных и интерактивных пользовательских интерфейсов. 
-                    Увлекаюсь фронтенд-разработкой, изучаю новые технологии и frameworks. В свободное время занимаюсь 
-                    спортом и фотографией.
+                    Я родился в Москве в 2006-м на краю города. Глупость рано ударила в голову. В четыре активно ругался.
+                    Потом школа, форма, драки, клей. Так я становился сильней. Воровал деньги в раздевалке.
+                </p>
+                <p class="about__text">
+                    Сейчас увлекаюсь веб-разработкой и изучаю современные технологии. 
+                    В свободное время занимаюсь созданием пет-проектов и изучаю новые фреймворки.
                 </p>
             </section>
-            
+
+            <!-- Skills Section -->
             <section class="skills">
                 <h2 class="skills__title">Мои навыки</h2>
-                <div class="skills__list">
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Vue.js</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">Figma</span>
+                <div class="skills-progress">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML/CSS</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Bootstrap</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>C++</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Git</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
                 </div>
             </section>
-            
+
+            <!-- Experience Section -->
             <section class="experience">
-                <h2 class="experience__title">Опыт работы</h2>
+                <h2 class="experience__title">Мой опыт работы</h2>
                 <div class="experience__card">
-                    <h3 class="experience__card-title">Веб-разработчик в IT-компании</h3>
-                    <p class="experience__card-desc">
-                        Разработка и поддержка клиентских веб-приложений. Работа с современными frameworks 
-                        и библиотеками. Участие в code review и team collaboration.
-                    </p>
+                    <h3 class="experience__card-title">Фермер</h3>
+                    <p class="experience__card-desc">Работал на огороде</p>
+                    <div class="experience__meta">
+                        <i class="bi bi-calendar"></i>
+                        <span>2020 - настоящее время</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="projects">
+                <h2 class="projects__title">Мои проекты</h2>
+                <div class="projects__grid">
+                    <div class="project-card">
+                        <div class="project-card__icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h3 class="project-card__title">Личный сайт-портфолио</h3>
+                        <p class="project-card__desc">
+                            Сайт-портфолио на HTML, CSS и JavaScript с адаптивным дизайном.
+                        </p>
+                        <div class="project-card__tags">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-card__icon">
+                            <i class="bi bi-list-check"></i>
+                        </div>
+                        <h3 class="project-card__title">Todo приложение</h3>
+                        <p class="project-card__desc">
+                            Приложение для управления задачами с использованием JavaScript и LocalStorage.
+                        </p>
+                        <div class="project-card__tags">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">LocalStorage</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-card__icon">
+                            <i class="bi bi-cart"></i>
+                        </div>
+                        <h3 class="project-card__title">Интернет-магазин</h3>
+                        <p class="project-card__desc">
+                            Прототип интернет-магазина с корзиной товаров и фильтрацией.
+                        </p>
+                        <div class="project-card__tags">
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
-        
+
         <footer class="footer">
-            <p class="footer__text">© 2024 Мое портфолио. Все права защищены.</p>
-            <p class="footer__text">Свяжитесь со мной: example@email.com</p>
+            <p class="footer__text">&copy; 2025 Семестровая работа. Все права защищены.</p>
+            <p class="footer__text">Онучин Михаил Сергеевич | ЭФБО-15-24</p>
+            <div class="footer__links">
+                <a href="pages/contacts.html" class="footer__link">
+                    <i class="bi bi-telephone"></i>Контакты
+                </a>
+                <a href="index_v1.html" class="footer__link">
+                    <i class="bi bi-clock-history"></i>Старая версия
+                </a>
+            </div>
         </footer>
     </div>
-    
-    <script src="script/script.js"></script>
+
+    <script src="js/theme-switcher.js"></script>
 </body>
 </html>
