@@ -209,51 +209,39 @@ body::after {
 
 /* ===== ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ===== */
 .theme-switcher {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-  backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    font-size: 24px;
 }
 
 .theme-switcher:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: scale(1.1);
-  box-shadow: var(--shadow-primary);
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: var(--shadow-primary);
 }
 
 .theme-switcher:active {
-  transform: scale(0.95);
+    transform: scale(0.95) rotate(0deg);
 }
 
 .theme-switcher__icon {
-  width: 24px;
-  height: 24px;
-  background: white;
-  border-radius: 50%;
-  position: relative;
-  transition: var(--transition);
+    transition: var(--transition);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.theme-switcher__icon::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 5px;
-  width: 14px;
-  height: 14px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  transition: var(--transition);
+.theme-switcher:hover .theme-switcher__icon {
+    transform: scale(1.2);
 }
-
 /* ===== НАВИГАЦИЯ ===== */
 .nav {
   background: var(--color-bg-light);
