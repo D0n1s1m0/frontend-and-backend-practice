@@ -4,388 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная - Портфолио</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <style>
-        :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #ff6b6b;
-            --success-color: #28a745;
-            --dark-color: #2c3e50;
-        }
-        
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
-        }
-        
-        .profile-img {
-            width: 200px;
-            height: 250px;
-            object-fit: cover;
-            border: 4px solid var(--primary-color);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
-        
-        .skill-tag {
-            transition: all 0.3s ease;
-        }
-        
-        .skill-tag:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        
-        .progress {
-            height: 10px;
-            border-radius: 10px;
-        }
-        
-        .progress-bar {
-            border-radius: 10px;
-        }
-        
-        .nav-link {
-            transition: all 0.3s ease;
-            border-radius: 5px;
-            margin: 2px;
-        }
-        
-        .nav-link:hover {
-            background-color: rgba(255,255,255,0.1);
-            transform: translateY(-1px);
-        }
-        
-        .nav-link.active {
-            background-color: var(--primary-color) !important;
-            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border: none;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-    </style>
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/themes.css">
 </head>
-<body class="bg-light">
-    <div class="container-fluid p-0">
-        <!-- Header -->
-        <header class="bg-gradient-primary text-white py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h1 class="h3 mb-1">Портфолио студента</h1>
-                        <p class="mb-0 opacity-75">Онучин Михаил Сергеевич</p>
-                    </div>
-                    <div class="col-auto">
-                        <span class="badge bg-light text-primary">ЭФБО-15-24</span>
-                    </div>
-                </div>
+<body class="theme-dark">
+    <div class="page">
+        <header class="header">
+            <div class="header__container">
+                <h1 class="header__title">Мое портфолио</h1>
+                <button class="theme-switcher" id="themeSwitcher" aria-label="Переключить тему">
+                    <span class="theme-switcher__icon"></span>
+                </button>
             </div>
         </header>
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--dark-color);">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">
-                                <i class="bi bi-house me-1"></i>Главная
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/news.html">
-                                <i class="bi bi-newspaper me-1"></i>Новости
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/practices.html">
-                                <i class="bi bi-code-slash me-1"></i>Практики
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/goods.html">
-                                <i class="bi bi-cart me-1"></i>Товары
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/contacts.html">
-                                <i class="bi bi-telephone me-1"></i>Контакты
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/contacts.html">Контакты</a>
+                </li>
+            </ul>
         </nav>
-
-        <!-- Main Content -->
-        <main class="container my-4">
-            <!-- Profile Section -->
-            <section class="mb-5">
-                <div class="card shadow-sm card-hover">
-                    <div class="card-body p-4">
-                        <div class="row align-items-center">
-                            <div class="col-md-3 text-center mb-3 mb-md-0">
-                                <img src="images/photo.png" alt="Фото автора" class="profile-img rounded">
-                            </div>
-                            <div class="col-md-9">
-                                <h2 class="card-title h4 text-primary">Онучин Михаил Сергеевич</h2>
-                                <p class="card-text text-muted mb-2">
-                                    <i class="bi bi-bookmark-check-fill text-primary"></i>
-                                    Студент группы ЭФБО-15-24
-                                </p>
-                                <p class="card-text">
-                                    Факультет информационных технологий, специальность "Веб-разработка"
-                                </p>
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="badge bg-primary skill-tag">HTML</span>
-                                    <span class="badge bg-success skill-tag">CSS</span>
-                                    <span class="badge bg-info skill-tag">JavaScript</span>
-                                    <span class="badge bg-warning skill-tag">Git</span>
-                                    <span class="badge bg-danger skill-tag">Python</span>
-                                    <span class="badge bg-secondary skill-tag">C++</span>
-                                </div>
-                            </div>
-                        </div>
+        
+        <main class="main">
+            <section class="profile">
+                <h2 class="profile__title">Мой профиль</h2>
+                <div class="profile__content">
+                    <img src="images/profile.jpg" alt="Фото профиля" class="profile__photo">
+                    <div class="profile__info">
+                        <h3 class="profile__name">Иван Иванов</h3>
+                        <p class="profile__group">Группа: ПРО-42</p>
                     </div>
                 </div>
             </section>
-
-            <!-- About Section -->
-            <section class="mb-5">
-                <div class="card shadow-sm card-hover">
-                    <div class="card-header bg-light">
-                        <h3 class="card-title h5 mb-0">
-                            <i class="bi bi-person-circle text-primary me-2"></i>
-                            Обо мне
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            Я родился в Москве в 2006-м на краю города. Глупость рано ударила в голову. В четыре активно ругался.
-                            Потом школа, форма, драки, клей. Так я становился сильней. Воровал деньги в раздевалке.
-                        </p>
-                        <p class="card-text">
-                            Сейчас увлекаюсь веб-разработкой и изучаю современные технологии. 
-                            В свободное время занимаюсь созданием пет-проектов и изучаю новые фреймворки.
-                        </p>
-                    </div>
+            
+            <section class="about">
+                <h2 class="about__title">Обо мне</h2>
+                <p class="about__text">
+                    Я начинающий веб-разработчик с passion к созданию современных и интерактивных пользовательских интерфейсов. 
+                    Увлекаюсь фронтенд-разработкой, изучаю новые технологии и frameworks. В свободное время занимаюсь 
+                    спортом и фотографией.
+                </p>
+            </section>
+            
+            <section class="skills">
+                <h2 class="skills__title">Мои навыки</h2>
+                <div class="skills__list">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Vue.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Figma</span>
                 </div>
             </section>
-
-            <!-- Skills Section -->
-            <section class="mb-5">
-                <div class="card shadow-sm card-hover">
-                    <div class="card-header bg-light">
-                        <h3 class="card-title h5 mb-0">
-                            <i class="bi bi-tools text-primary me-2"></i>
-                            Мои навыки
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <span>HTML/CSS</span>
-                                        <span class="text-primary fw-bold">85%</span>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-primary" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <span>JavaScript</span>
-                                        <span class="text-primary fw-bold">70%</span>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" style="width: 70%"></div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <span>Bootstrap</span>
-                                        <span class="text-primary fw-bold">80%</span>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-info" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <span>Python</span>
-                                        <span class="text-primary fw-bold">75%</span>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-warning" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <span>C++</span>
-                                        <span class="text-primary fw-bold">65%</span>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-danger" style="width: 65%"></div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <span>Git</span>
-                                        <span class="text-primary fw-bold">80%</span>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-secondary" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Experience Section -->
-            <section class="mb-5">
-                <div class="card shadow-sm card-hover">
-                    <div class="card-header bg-light">
-                        <h3 class="card-title h5 mb-0">
-                            <i class="bi bi-briefcase text-primary me-2"></i>
-                            Мой опыт работы
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card mb-3 border-0 bg-light">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-primary">Фермер</h5>
-                                        <p class="card-text text-muted">Работал на огороде</p>
-                                        <div class="d-flex align-items-center text-muted small">
-                                            <i class="bi bi-calendar me-1"></i>
-                                            <span>2020 - настоящее время</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section class="mb-5">
-                <div class="card shadow-sm card-hover">
-                    <div class="card-header bg-light">
-                        <h3 class="card-title h5 mb-0">
-                            <i class="bi bi-folder-fill text-primary me-2"></i>
-                            Мои проекты
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="row g-3">
-                            <div class="col-md-4">
-                                <div class="card h-100 card-hover">
-                                    <div class="card-img-top bg-primary text-white text-center py-4">
-                                        <i class="bi bi-laptop" style="font-size: 3rem;"></i>
-                                    </div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h5 class="card-title">Личный сайт-портфолио</h5>
-                                        <p class="card-text small text-muted flex-grow-1">
-                                            Сайт-портфолио на HTML, CSS и JavaScript с адаптивным дизайном.
-                                        </p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-primary">HTML</span>
-                                            <span class="badge bg-primary">CSS</span>
-                                            <span class="badge bg-primary">JavaScript</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 card-hover">
-                                    <div class="card-img-top bg-success text-white text-center py-4">
-                                        <i class="bi bi-list-check" style="font-size: 3rem;"></i>
-                                    </div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h5 class="card-title">Todo приложение</h5>
-                                        <p class="card-text small text-muted flex-grow-1">
-                                            Приложение для управления задачами с использованием JavaScript и LocalStorage.
-                                        </p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-success">JavaScript</span>
-                                            <span class="badge bg-success">LocalStorage</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card h-100 card-hover">
-                                    <div class="card-img-top bg-info text-white text-center py-4">
-                                        <i class="bi bi-cart" style="font-size: 3rem;"></i>
-                                    </div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h5 class="card-title">Интернет-магазин</h5>
-                                        <p class="card-text small text-muted flex-grow-1">
-                                            Прототип интернет-магазина с корзиной товаров и фильтрацией.
-                                        </p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-info">Bootstrap</span>
-                                            <span class="badge bg-info">JavaScript</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            
+            <section class="experience">
+                <h2 class="experience__title">Опыт работы</h2>
+                <div class="experience__card">
+                    <h3 class="experience__card-title">Веб-разработчик в IT-компании</h3>
+                    <p class="experience__card-desc">
+                        Разработка и поддержка клиентских веб-приложений. Работа с современными frameworks 
+                        и библиотеками. Участие в code review и team collaboration.
+                    </p>
                 </div>
             </section>
         </main>
-
-        <!-- Footer -->
-        <footer class="bg-dark text-white py-4 mt-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <p class="mb-0">&copy; 2025 Семестровая работа. Все права защищены.</p>
-                        <p class="mb-0 text-muted">Онучин Михаил Сергеевич | ЭФБО-15-24</p>
-                    </div>
-                    <div class="col-md-6 text-md-end">
-                        <a href="pages/contacts.html" class="text-white text-decoration-none me-3">
-                            <i class="bi bi-telephone me-1"></i>Контакты
-                        </a>
-                        <a href="index_v1.html" class="text-white text-decoration-none">
-                            <i class="bi bi-clock-history me-1"></i>Старая версия
-                        </a>
-                    </div>
-                </div>
-            </div>
+        
+        <footer class="footer">
+            <p class="footer__text">© 2024 Мое портфолио. Все права защищены.</p>
+            <p class="footer__text">Свяжитесь со мной: example@email.com</p>
         </footer>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="script/script.js"></script>
 </body>
 </html>
