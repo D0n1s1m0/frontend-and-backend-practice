@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Товары - Портфолио</title>
+    <title>Товары - Каталог</title>
     <link rel="stylesheet" href="../style/styles.css">
     <link rel="stylesheet" href="../style/themes.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body class="theme-dark">
     <div class="page">
         <header class="header">
             <div class="header__container">
-                <h1 class="header__title">Магазин товаров</h1>
+                <h1 class="header__title">Каталог товаров</h1>
                 <button class="theme-switcher" id="themeSwitcher" aria-label="Переключить тему">
                     <span class="theme-switcher__icon"></span>
                 </button>
             </div>
         </header>
-        
+
         <nav class="nav">
             <ul class="nav__list">
                 <li class="nav__item">
@@ -37,78 +38,431 @@
                 </li>
             </ul>
         </nav>
-        
+
         <main class="main">
+            <!-- Filter Section -->
+            <section class="filters">
+                <div class="filters__card">
+                    <div class="filters__content">
+                        <div class="filter-group">
+                            <label for="categoryFilter" class="filter-label">Категория:</label>
+                            <select class="filter-select" id="categoryFilter">
+                                <option value="all">Все категории</option>
+                                <option value="laptop">Ноутбуки</option>
+                                <option value="phone">Смартфоны</option>
+                                <option value="headphones">Наушники</option>
+                                <option value="tablet">Планшеты</option>
+                                <option value="monitor">Мониторы</option>
+                                <option value="keyboard">Клавиатуры</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="priceFilter" class="filter-label">Цена:</label>
+                            <select class="filter-select" id="priceFilter">
+                                <option value="all">Любая цена</option>
+                                <option value="0-10000">До 10 000 руб.</option>
+                                <option value="10000-30000">10 000 - 30 000 руб.</option>
+                                <option value="30000-50000">30 000 - 50 000 руб.</option>
+                                <option value="50000+">От 50 000 руб.</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="sortFilter" class="filter-label">Сортировка:</label>
+                            <select class="filter-select" id="sortFilter">
+                                <option value="name">По названию</option>
+                                <option value="price-low">Сначала дешевые</option>
+                                <option value="price-high">Сначала дорогие</option>
+                                <option value="popular">По популярности</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Grid -->
             <section class="products">
-                <h2 class="products__title">Наши товары</h2>
-                
-                <div class="filters">
-                    <div class="filter-group">
-                        <select class="filter-select" id="categoryFilter">
-                            <option value="">Все категории</option>
-                            <option value="electronics">Электроника</option>
-                            <option value="books">Книги</option>
-                            <option value="clothing">Одежда</option>
-                        </select>
-                        <select class="filter-select" id="priceFilter">
-                            <option value="">Любая цена</option>
-                            <option value="0-1000">До 1000 руб</option>
-                            <option value="1000-5000">1000-5000 руб</option>
-                            <option value="5000+">От 5000 руб</option>
-                        </select>
-                    </div>
-                </div>
-                
+                <h2 class="products__title">Товары</h2>
                 <div class="products__grid" id="productsGrid">
-                    <!-- Товары будут загружены через JavaScript -->
-                </div>
-                
-                <div class="cart" id="cartSection">
-                    <h3 class="cart__title">Корзина</h3>
-                    <div class="cart-items" id="cartItems">
-                        <!-- Товары в корзине -->
+                    <!-- Product 1 -->
+                    <div class="product-card" data-category="laptop" data-price="75000">
+                        <img src="../images/goods1.jpg" class="product-card__image" alt="Ноутбук игровой">
+                        <div class="product-card__info">
+                            <h3 class="product-card__name">Ноутбук игровой</h3>
+                            <p class="product-card__desc">Мощный игровой ноутбук с процессором Intel Core i7 и видеокартой RTX 4060</p>
+                            <div class="product-card__price">
+                                <span class="price-new">75 000 руб.</span>
+                            </div>
+                            <div class="product-card__status">
+                                <span class="status-badge status-available">В наличии</span>
+                            </div>
+                            <button class="product-card__button" onclick="addToCart(this, 1, 'Ноутбук игровой', 75000)">
+                                <i class="bi bi-cart-plus"></i>В корзину
+                            </button>
+                        </div>
                     </div>
-                    <div class="cart-summary">
-                        <div class="cart-total" id="cartTotal">Итого: 0 руб</div>
-                        <button class="checkout-btn" id="checkoutBtn" disabled>Оформить заказ</button>
+
+                    <!-- Product 2 -->
+                    <div class="product-card" data-category="phone" data-price="35000">
+                        <img src="../images/goods2.jpg" class="product-card__image" alt="Смартфон премиум">
+                        <div class="product-card__info">
+                            <h3 class="product-card__name">Смартфон премиум</h3>
+                            <p class="product-card__desc">Флагманский смартфон с камерой 108 МП и экраном AMOLED 120 Гц</p>
+                            <div class="product-card__price">
+                                <span class="price-new">35 000 руб.</span>
+                            </div>
+                            <div class="product-card__status">
+                                <span class="status-badge status-available">В наличии</span>
+                            </div>
+                            <button class="product-card__button" onclick="addToCart(this, 2, 'Смартфон премиум', 35000)">
+                                <i class="bi bi-cart-plus"></i>В корзину
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 with Discount -->
+                    <div class="product-card product-card--discount" data-category="headphones" data-price="8500">
+                        <div class="product-card__badge">-20%</div>
+                        <img src="../images/goods3.jpg" class="product-card__image" alt="Наушники беспроводные">
+                        <div class="product-card__info">
+                            <h3 class="product-card__name">Наушники беспроводные</h3>
+                            <p class="product-card__desc">Беспроводные наушники с шумоподавлением и временем работы до 30 часов</p>
+                            <div class="product-card__price">
+                                <span class="price-old">10 625 руб.</span>
+                                <span class="price-new">8 500 руб.</span>
+                            </div>
+                            <div class="product-card__status">
+                                <span class="status-badge status-warning">Осталось мало</span>
+                            </div>
+                            <button class="product-card__button" onclick="addToCart(this, 3, 'Наушники беспроводные', 8500)">
+                                <i class="bi bi-cart-plus"></i>В корзину
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card" data-category="tablet" data-price="25000">
+                        <img src="../images/goods1.jpg" class="product-card__image" alt="Планшет графический">
+                        <div class="product-card__info">
+                            <h3 class="product-card__name">Планшет графический</h3>
+                            <p class="product-card__desc">Графический планшет для дизайнеров с чувствительностью к нажатию 8192 уровня</p>
+                            <div class="product-card__price">
+                                <span class="price-new">25 000 руб.</span>
+                            </div>
+                            <div class="product-card__status">
+                                <span class="status-badge status-available">В наличии</span>
+                            </div>
+                            <button class="product-card__button" onclick="addToCart(this, 4, 'Планшет графический', 25000)">
+                                <i class="bi bi-cart-plus"></i>В корзину
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card" data-category="monitor" data-price="32000">
+                        <img src="../images/goods2.jpg" class="product-card__image" alt="Монитор 4K">
+                        <div class="product-card__info">
+                            <h3 class="product-card__name">Монитор 4K</h3>
+                            <p class="product-card__desc">27-дюймовый 4K монитор с IPS матрицей и частотой обновления 144 Гц</p>
+                            <div class="product-card__price">
+                                <span class="price-new">32 000 руб.</span>
+                            </div>
+                            <div class="product-card__status">
+                                <span class="status-badge status-available">В наличии</span>
+                            </div>
+                            <button class="product-card__button" onclick="addToCart(this, 5, 'Монитор 4K', 32000)">
+                                <i class="bi bi-cart-plus"></i>В корзину
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card" data-category="keyboard" data-price="6500">
+                        <img src="../images/goods3.jpg" class="product-card__image" alt="Клавиатура механическая">
+                        <div class="product-card__info">
+                            <h3 class="product-card__name">Клавиатура механическая</h3>
+                            <p class="product-card__desc">Механическая клавиатура с RGB подсветкой и переключателями Cherry MX</p>
+                            <div class="product-card__price">
+                                <span class="price-new">6 500 руб.</span>
+                            </div>
+                            <div class="product-card__status">
+                                <span class="status-badge status-available">В наличии</span>
+                            </div>
+                            <button class="product-card__button" onclick="addToCart(this, 6, 'Клавиатура механическая', 6500)">
+                                <i class="bi bi-cart-plus"></i>В корзину
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cart Summary -->
+            <section class="cart">
+                <div class="cart__card">
+                    <div class="cart__header">
+                        <h2 class="cart__title">
+                            <i class="bi bi-cart-check"></i>
+                            Итоговая корзина
+                        </h2>
+                    </div>
+                    <div class="cart__content">
+                        <div class="cart__items">
+                            <p class="cart__empty" id="cartEmptyMessage">Корзина пуста. Добавьте товары из каталога.</p>
+                            <div id="cartItems" class="cart__items-list">
+                                <!-- Cart items will be populated here -->
+                            </div>
+                        </div>
+                        <div class="cart__summary">
+                            <div class="summary-card">
+                                <h3 class="summary-title">Итого:</h3>
+                                <div class="summary-row">
+                                    <span class="summary-label">Товары:</span>
+                                    <span id="cartSubtotal" class="summary-value">0 руб.</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Доставка:</span>
+                                    <span id="cartShipping" class="summary-value">0 руб.</span>
+                                </div>
+                                <hr class="summary-divider">
+                                <div class="summary-total">
+                                    <span class="total-label">Всего:</span>
+                                    <span id="cartTotal" class="total-value">0 руб.</span>
+                                </div>
+                                <button class="checkout-button" id="checkoutBtn" disabled>
+                                    <i class="bi bi-bag-check"></i>Оформить заказ
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
-        
+
         <footer class="footer">
-            <p class="footer__text">© 2024 Магазин товаров. Все права защищены.</p>
-            <p class="footer__text">Техподдержка: support@example.com</p>
+            <p class="footer__text">&copy; 2025 Семестровая работа. Все права защищены.</p>
+            <div class="footer__links">
+                <a href="contacts.html" class="footer__link">
+                    <i class="bi bi-telephone"></i>Контакты
+                </a>
+                <a href="goods_v1.html" class="footer__link">
+                    <i class="bi bi-clock-history"></i>Старая версия
+                </a>
+            </div>
         </footer>
     </div>
-    
-    <!-- Модальное окно оформления заказа -->
-    <div class="modal" id="orderModal">
-        <div class="modal__content">
-            <span class="modal__close" id="modalClose">&times;</span>
-            <h3 class="modal__title">Оформление заказа</h3>
-            <form class="form" id="orderForm">
-                <div class="form__group">
-                    <label class="form__label" for="name">Имя:</label>
-                    <input class="form__input" type="text" id="name" required>
-                </div>
-                <div class="form__group">
-                    <label class="form__label" for="email">Email:</label>
-                    <input class="form__input" type="email" id="email" required>
-                </div>
-                <div class="form__group">
-                    <label class="form__label" for="phone">Телефон:</label>
-                    <input class="form__input" type="tel" id="phone" required>
-                </div>
-                <div class="form__group">
-                    <label class="form__label" for="address">Адрес:</label>
-                    <textarea class="form__textarea" id="address" required></textarea>
-                </div>
-                <button class="form__button" type="submit">Подтвердить заказ</button>
-            </form>
-        </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer">
+        <!-- Toasts will be inserted here dynamically -->
     </div>
-    
-    <script src="../script/goods.js"></script>
+
+    <script src="../js/theme-switcher.js"></script>
+    <script>
+        // JavaScript код из оригинального goods.html остается без изменений
+        let cart = [];
+        let cartCount = 0;
+
+        function addToCart(button, productId, productName, productPrice) {
+            const productCard = button.closest('.product-card');
+            
+            // Add to cart
+            const cartItem = {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                quantity: 1
+            };
+            
+            // Check if item already in cart
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push(cartItem);
+            }
+            
+            cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            updateCartUI();
+            
+            // Visual feedback
+            productCard.classList.add('product-card--selected');
+            button.innerHTML = '<i class="bi bi-check-lg"></i>Добавлено';
+            button.classList.add('button--added');
+            button.disabled = true;
+            
+            // Show toast notification
+            showToast(`Товар "${productName}" добавлен в корзину!`);
+        }
+
+        function updateCartUI() {
+            // Update cart summary
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal > 0 ? 500 : 0; // 500 руб. доставка
+            const total = subtotal + shipping;
+            
+            document.getElementById('cartSubtotal').textContent = `${subtotal.toLocaleString()} руб.`;
+            document.getElementById('cartShipping').textContent = `${shipping.toLocaleString()} руб.`;
+            document.getElementById('cartTotal').textContent = `${total.toLocaleString()} руб.`;
+            
+            // Show/hide empty message and populate cart items
+            const emptyMessage = document.getElementById('cartEmptyMessage');
+            const cartItems = document.getElementById('cartItems');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            
+            if (cartCount > 0) {
+                emptyMessage.style.display = 'none';
+                cartItems.style.display = 'block';
+                checkoutBtn.disabled = false;
+                
+                // Populate cart items
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <div class="cart-item__info">
+                            <div class="cart-item__name">${item.name}</div>
+                            <div class="cart-item__details">${item.price.toLocaleString()} руб. × ${item.quantity}</div>
+                        </div>
+                        <div class="cart-item__actions">
+                            <span class="cart-item__total">${(item.price * item.quantity).toLocaleString()} руб.</span>
+                            <button class="cart-item__remove" onclick="removeFromCart(${item.id})">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                emptyMessage.style.display = 'block';
+                cartItems.style.display = 'none';
+                checkoutBtn.disabled = true;
+            }
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            updateCartUI();
+            
+            // Reset product card appearance
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                if (card.dataset.category && card.querySelector(`[onclick*="${productId}"]`)) {
+                    card.classList.remove('product-card--selected');
+                    const button = card.querySelector('.product-card__button');
+                    button.innerHTML = '<i class="bi bi-cart-plus"></i>В корзину';
+                    button.classList.remove('button--added');
+                    button.disabled = false;
+                }
+            });
+            
+            showToast('Товар удален из корзины!', 'error');
+        }
+
+        function showToast(message, type = 'success') {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast toast--${type}`;
+            toast.innerHTML = `
+                <div class="toast__content">
+                    <i class="bi ${type === 'success' ? 'bi-check-circle' : 'bi-exclamation-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+                <button class="toast__close" onclick="this.parentElement.remove()">
+                    <i class="bi bi-x"></i>
+                </button>
+            `;
+            
+            toastContainer.appendChild(toast);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.remove();
+                }
+            }, 3000);
+        }
+
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryFilter = document.getElementById('categoryFilter');
+            const priceFilter = document.getElementById('priceFilter');
+            const sortFilter = document.getElementById('sortFilter');
+            const products = document.querySelectorAll('.product-card');
+            
+            function filterAndSortProducts() {
+                const categoryValue = categoryFilter.value;
+                const priceValue = priceFilter.value;
+                const sortValue = sortFilter.value;
+                
+                let filteredProducts = Array.from(products);
+                
+                // Filter by category
+                if (categoryValue !== 'all') {
+                    filteredProducts = filteredProducts.filter(product => 
+                        product.dataset.category === categoryValue
+                    );
+                }
+                
+                // Filter by price
+                if (priceValue !== 'all') {
+                    filteredProducts = filteredProducts.filter(product => {
+                        const productPrice = parseInt(product.dataset.price);
+                        const [min, max] = priceValue.split('-').map(val => {
+                            if (val.endsWith('+')) return parseInt(val) - 1;
+                            return parseInt(val);
+                        });
+                        
+                        if (priceValue.endsWith('+')) {
+                            return productPrice > min;
+                        } else {
+                            return productPrice >= min && productPrice <= max;
+                        }
+                    });
+                }
+                
+                // Sort products
+                if (sortValue === 'price-low') {
+                    filteredProducts.sort((a, b) => parseInt(a.dataset.price) - parseInt(b.dataset.price));
+                } else if (sortValue === 'price-high') {
+                    filteredProducts.sort((a, b) => parseInt(b.dataset.price) - parseInt(a.dataset.price));
+                } else if (sortValue === 'name') {
+                    filteredProducts.sort((a, b) => {
+                        const nameA = a.querySelector('.product-card__name').textContent.toLowerCase();
+                        const nameB = b.querySelector('.product-card__name').textContent.toLowerCase();
+                        return nameA.localeCompare(nameB);
+                    });
+                }
+                
+                // Hide all products first
+                products.forEach(product => product.style.display = 'none');
+                
+                // Show filtered and sorted products
+                filteredProducts.forEach(product => product.style.display = 'block');
+            }
+            
+            categoryFilter.addEventListener('change', filterAndSortProducts);
+            priceFilter.addEventListener('change', filterAndSortProducts);
+            sortFilter.addEventListener('change', filterAndSortProducts);
+            
+            // Initialize checkout button
+            document.getElementById('checkoutBtn').addEventListener('click', function() {
+                if (cartCount > 0) {
+                    showToast(`Заказ оформлен! Товаров: ${cartCount}, Сумма: ${document.getElementById('cartTotal').textContent}`, 'success');
+                    // Reset cart
+                    cart = [];
+                    cartCount = 0;
+                    updateCartUI();
+                    
+                    // Reset all product cards
+                    products.forEach(product => {
+                        product.classList.remove('product-card--selected');
+                        const button = product.querySelector('.product-card__button');
+                        if (button) {
+                            button.innerHTML = '<i class="bi bi-cart-plus"></i>В корзину';
+                            button.classList.remove('button--added');
+                            button.disabled = false;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
