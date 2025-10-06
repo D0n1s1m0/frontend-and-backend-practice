@@ -5,76 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты</title>
     <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/themes.css">
 </head>
-<body>
-    <div class="page-container">
-        <div class="header">
-            <h1>Контакты</h1>
-        </div>
-        
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
-            </ul>
-        </div>
-        
-        <div class="content">
-            <h2 class="section-title">Свяжитесь с нами</h2>
-            
-            <div class="contacts-container">
-                <div class="contact-item">
-                    <h3 class="contact-title">Электронная почта</h3>
-                    <p class="contact-info">example@mail.ru</p>
-                </div>
-                
-                <div class="contact-item">
-                    <h3 class="contact-title">Адрес</h3>
-                    <p class="contact-info">г. Москва, ул. Примерная, д. 123, офис 456</p>
-                </div>
-                
-                <div class="contact-item">
-                    <h3 class="contact-title">Телефон</h3>
-                    <p class="contact-info">+7 (999) 123-45-67</p>
-                    <button class="contact-button" id="openModalBtn">
-                        Связаться с нами
-                    </button>
-                </div>
-                
-                <div class="contact-item">
-                    <h3 class="contact-title">Время работы</h3>
-                    <p class="contact-info">Пн-Пт: 9:00-18:00<br>Сб-Вс: выходной</p>
-                </div>
+<body class="theme-dark">
+    <div class="page">
+        <header class="header">
+            <div class="header__container">
+                <h1 class="header__title">Контакты</h1>
+                <button class="theme-switcher" id="themeSwitcher" aria-label="Переключить тему">
+                    <span class="theme-switcher__icon"></span>
+                </button>
             </div>
-        </div>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link nav__link--active" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <main class="main">
+            <section class="contacts">
+                <h2 class="contacts__title">Свяжитесь с нами</h2>
+                
+                <div class="contacts__list">
+                    <div class="contact-card">
+                        <h3 class="contact-card__title">Электронная почта</h3>
+                        <p class="contact-card__info">example@mail.ru</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3 class="contact-card__title">Адрес</h3>
+                        <p class="contact-card__info">г. Москва, ул. Примерная, д. 123, офис 456</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3 class="contact-card__title">Телефон</h3>
+                        <p class="contact-card__info">+7 (999) 123-45-67</p>
+                        <button class="contact-card__button" id="openModalBtn">
+                            Связаться с нами
+                        </button>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3 class="contact-card__title">Время работы</h3>
+                        <p class="contact-card__info">Пн-Пт: 9:00-18:00<br>Сб-Вс: выходной</p>
+                    </div>
+                </div>
+            </section>
+        </main>
         
         <!-- Модальное окно -->
         <div id="contactModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Форма обратной связи</h2>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Имя:</label>
-                        <input type="text" id="name" name="name" required>
+            <div class="modal__content">
+                <span class="modal__close">&times;</span>
+                <h2 class="modal__title">Форма обратной связи</h2>
+                <form id="contactForm" class="form">
+                    <div class="form__group">
+                        <label for="name" class="form__label">Имя:</label>
+                        <input type="text" id="name" name="name" class="form__input" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="phone">Телефон:</label>
-                        <input type="tel" id="phone" name="phone" required>
+                    <div class="form__group">
+                        <label for="phone" class="form__label">Телефон:</label>
+                        <input type="tel" id="phone" name="phone" class="form__input" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="email">Электронная почта:</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="form__group">
+                        <label for="email" class="form__label">Электронная почта:</label>
+                        <input type="email" id="email" name="email" class="form__input" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="category">Категория обращения:</label>
-                        <select id="category" name="category" required>
+                    <div class="form__group">
+                        <label for="category" class="form__label">Категория обращения:</label>
+                        <select id="category" name="category" class="form__select" required>
                             <option value="">Выберите категорию</option>
                             <option value="technical">Техническая поддержка</option>
                             <option value="sales">Вопросы по продажам</option>
@@ -83,26 +101,27 @@
                         </select>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="message">Текст обращения:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                    <div class="form__group">
+                        <label for="message" class="form__label">Текст обращения:</label>
+                        <textarea id="message" name="message" rows="5" class="form__textarea" required></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Отправить</button>
+                    <button type="submit" class="form__button">Отправить</button>
                 </form>
             </div>
         </div>
         
-        <div class="footer">
-            <p>&copy; 2025 Семестровая работа. Все права защищены.</p>
-        </div>
+        <footer class="footer">
+            <p class="footer__text">&copy; 2025 Семестровая работа. Все права защищены.</p>
+        </footer>
     </div>
     
+    <script src="../js/theme-switcher.js"></script>
     <script>
         // Получаем элементы модального окна
         const modal = document.getElementById("contactModal");
         const openBtn = document.getElementById("openModalBtn");
-        const closeBtn = document.querySelector(".close");
+        const closeBtn = document.querySelector(".modal__close");
         const contactForm = document.getElementById("contactForm");
         
         // Открытие модального окна
