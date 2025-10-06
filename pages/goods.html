@@ -7,50 +7,129 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #ff6b6b;
+            --success-color: #28a745;
+            --dark-color: #2c3e50;
+        }
+        
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+        }
+        
         .product-card {
             transition: all 0.3s ease;
             height: 100%;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
+        
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
+        
         .product-image {
             height: 200px;
             object-fit: cover;
         }
+        
         .discount-badge {
             position: absolute;
             top: 10px;
             right: 10px;
             z-index: 2;
+            font-size: 0.8rem;
         }
+        
         .price-old {
             text-decoration: line-through;
             color: #6c757d;
             font-size: 0.9em;
         }
+        
         .price-new {
-            color: #dc3545;
+            color: var(--accent-color);
             font-weight: bold;
             font-size: 1.1em;
         }
+        
         .cart-btn {
             transition: all 0.3s ease;
         }
+        
         .cart-btn:hover {
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
+        
         .selected-product {
-            border: 2px solid #198754 !important;
-            box-shadow: 0 0 15px rgba(25, 135, 84, 0.3) !important;
+            border: 2px solid var(--success-color) !important;
+            box-shadow: 0 0 20px rgba(40, 167, 69, 0.3) !important;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--success-color), #20c997);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            margin: 2px;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-1px);
+        }
+        
+        .nav-link.active {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .toast {
+            background: linear-gradient(135deg, var(--success-color), #20c997);
+            border: none;
+            color: white;
         }
     </style>
 </head>
 <body class="bg-light">
     <div class="container-fluid p-0">
         <!-- Header -->
-        <header class="bg-primary text-white py-4">
+        <header class="bg-gradient-primary text-white py-4">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col">
@@ -65,7 +144,7 @@
         </header>
 
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--dark-color);">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -106,11 +185,11 @@
         <main class="container my-4">
             <!-- Filter Section -->
             <section class="mb-4">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm card-hover">
                     <div class="card-body">
                         <div class="row g-3 align-items-center">
                             <div class="col-md-4">
-                                <label for="categoryFilter" class="form-label">Категория:</label>
+                                <label for="categoryFilter" class="form-label fw-bold text-dark">Категория:</label>
                                 <select class="form-select" id="categoryFilter">
                                     <option value="all">Все категории</option>
                                     <option value="laptop">Ноутбуки</option>
@@ -122,7 +201,7 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label for="priceFilter" class="form-label">Цена:</label>
+                                <label for="priceFilter" class="form-label fw-bold text-dark">Цена:</label>
                                 <select class="form-select" id="priceFilter">
                                     <option value="all">Любая цена</option>
                                     <option value="0-10000">До 10 000 руб.</option>
@@ -132,7 +211,7 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label for="sortFilter" class="form-label">Сортировка:</label>
+                                <label for="sortFilter" class="form-label fw-bold text-dark">Сортировка:</label>
                                 <select class="form-select" id="sortFilter">
                                     <option value="name">По названию</option>
                                     <option value="price-low">Сначала дешевые</option>
@@ -153,14 +232,14 @@
                         <div class="card product-card">
                             <img src="../images/goods1.jpg" class="card-img-top product-image" alt="Ноутбук игровой">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">Ноутбук игровой</h5>
-                                <p class="card-text text-muted small">Мощный игровой ноутбук с процессором Intel Core i7 и видеокартой RTX 4060</p>
+                                <h5 class="card-title text-dark">Ноутбук игровой</h5>
+                                <p class="card-text text-muted small flex-grow-1">Мощный игровой ноутбук с процессором Intel Core i7 и видеокартой RTX 4060</p>
                                 <div class="mt-auto">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <span class="h5 text-primary mb-0">75 000 руб.</span>
                                         <span class="badge bg-success">В наличии</span>
                                     </div>
-                                    <button class="btn btn-primary w-100 cart-btn" onclick="addToCart(this, 1)">
+                                    <button class="btn btn-primary w-100 cart-btn" onclick="addToCart(this, 1, 'Ноутбук игровой', 75000)">
                                         <i class="bi bi-cart-plus me-2"></i>В корзину
                                     </button>
                                 </div>
@@ -173,14 +252,14 @@
                         <div class="card product-card">
                             <img src="../images/goods2.jpg" class="card-img-top product-image" alt="Смартфон премиум">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">Смартфон премиум</h5>
-                                <p class="card-text text-muted small">Флагманский смартфон с камерой 108 МП и экраном AMOLED 120 Гц</p>
+                                <h5 class="card-title text-dark">Смартфон премиум</h5>
+                                <p class="card-text text-muted small flex-grow-1">Флагманский смартфон с камерой 108 МП и экраном AMOLED 120 Гц</p>
                                 <div class="mt-auto">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <span class="h5 text-primary mb-0">35 000 руб.</span>
                                         <span class="badge bg-success">В наличии</span>
                                     </div>
-                                    <button class="btn btn-primary w-100 cart-btn" onclick="addToCart(this, 2)">
+                                    <button class="btn btn-primary w-100 cart-btn" onclick="addToCart(this, 2, 'Смартфон премиум', 35000)">
                                         <i class="bi bi-cart-plus me-2"></i>В корзину
                                     </button>
                                 </div>
@@ -190,21 +269,21 @@
 
                     <!-- Product 3 with Discount -->
                     <div class="col-xl-4 col-md-6" data-category="headphones" data-price="8500">
-                        <div class="card product-card">
+                        <div class="card product-card position-relative">
                             <span class="discount-badge badge bg-danger">-20%</span>
                             <img src="../images/goods3.jpg" class="card-img-top product-image" alt="Наушники беспроводные">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">Наушники беспроводные</h5>
-                                <p class="card-text text-muted small">Беспроводные наушники с шумоподавлением и временем работы до 30 часов</p>
+                                <h5 class="card-title text-dark">Наушники беспроводные</h5>
+                                <p class="card-text text-muted small flex-grow-1">Беспроводные наушники с шумоподавлением и временем работы до 30 часов</p>
                                 <div class="mt-auto">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <div>
-                                            <span class="price-old">10 625 руб.</span>
-                                            <span class="price-new d-block">8 500 руб.</span>
+                                            <span class="price-old d-block">10 625 руб.</span>
+                                            <span class="price-new">8 500 руб.</span>
                                         </div>
                                         <span class="badge bg-warning text-dark">Осталось мало</span>
                                     </div>
-                                    <button class="btn btn-success w-100 cart-btn" onclick="addToCart(this, 3)">
+                                    <button class="btn btn-success w-100 cart-btn" onclick="addToCart(this, 3, 'Наушники беспроводные', 8500)">
                                         <i class="bi bi-cart-plus me-2"></i>В корзину
                                     </button>
                                 </div>
@@ -217,14 +296,14 @@
                         <div class="card product-card">
                             <img src="../images/goods1.jpg" class="card-img-top product-image" alt="Планшет графический">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">Планшет графический</h5>
-                                <p class="card-text text-muted small">Графический планшет для дизайнеров с чувствительностью к нажатию 8192 уровня</p>
+                                <h5 class="card-title text-dark">Планшет графический</h5>
+                                <p class="card-text text-muted small flex-grow-1">Графический планшет для дизайнеров с чувствительностью к нажатию 8192 уровня</p>
                                 <div class="mt-auto">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <span class="h5 text-primary mb-0">25 000 руб.</span>
                                         <span class="badge bg-success">В наличии</span>
                                     </div>
-                                    <button class="btn btn-primary w-100 cart-btn" onclick="addToCart(this, 4)">
+                                    <button class="btn btn-primary w-100 cart-btn" onclick="addToCart(this, 4, 'Планшет графический', 25000)">
                                         <i class="bi bi-cart-plus me-2"></i>В корзину
                                     </button>
                                 </div>
@@ -237,14 +316,14 @@
                         <div class="card product-card">
                             <img src="../images/goods2.jpg" class="card-img-top product-image" alt="Монитор 4K">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">Монитор 4K</h5>
-                                <p class="card-text text-muted small">27-дюймовый 4K монитор с IPS матрицей и частотой обновления 144 Гц</p>
+                                <h5 class="card-title text-dark">Монитор 4K</h5>
+                                <p class="card-text text-muted small flex-grow-1">27-дюймовый 4K монитор с IPS матрицей и частотой обновления 144 Гц</p>
                                 <div class="mt-auto">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <span class="h5 text-primary mb-0">32 000 руб.</span>
                                         <span class="badge bg-success">В наличии</span>
                                     </div>
-                                    <button class="btn btn-primary w-100 cart-btn" onclick="addToCart(this, 5)">
+                                    <button class="btn btn-primary w-100 cart-btn" onclick="addToCart(this, 5, 'Монитор 4K', 32000)">
                                         <i class="bi bi-cart-plus me-2"></i>В корзину
                                     </button>
                                 </div>
@@ -257,14 +336,14 @@
                         <div class="card product-card">
                             <img src="../images/goods3.jpg" class="card-img-top product-image" alt="Клавиатура механическая">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">Клавиатура механическая</h5>
-                                <p class="card-text text-muted small">Механическая клавиатура с RGB подсветкой и переключателями Cherry MX</p>
+                                <h5 class="card-title text-dark">Клавиатура механическая</h5>
+                                <p class="card-text text-muted small flex-grow-1">Механическая клавиатура с RGB подсветкой и переключателями Cherry MX</p>
                                 <div class="mt-auto">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <span class="h5 text-primary mb-0">6 500 руб.</span>
                                         <span class="badge bg-success">В наличии</span>
                                     </div>
-                                    <button class="btn btn-primary w-100 cart-btn" onclick="addToCart(this, 6)">
+                                    <button class="btn btn-primary w-100 cart-btn" onclick="addToCart(this, 6, 'Клавиатура механическая', 6500)">
                                         <i class="bi bi-cart-plus me-2"></i>В корзину
                                     </button>
                                 </div>
@@ -276,37 +355,37 @@
 
             <!-- Cart Summary -->
             <section class="mt-5">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm card-hover">
                     <div class="card-header bg-light">
                         <h3 class="card-title h5 mb-0">
-                            <i class="bi bi-cart-check text-primary"></i>
+                            <i class="bi bi-cart-check text-primary me-2"></i>
                             Итоговая корзина
                         </h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-8">
-                                <p class="text-muted" id="cartEmptyMessage">Корзина пуста. Добавьте товары из каталога.</p>
-                                <div id="cartItems" class="d-none">
+                                <p class="text-muted mb-0" id="cartEmptyMessage">Корзина пуста. Добавьте товары из каталога.</p>
+                                <div id="cartItems" class="d-none mt-3">
                                     <!-- Cart items will be populated here -->
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="card bg-light">
                                     <div class="card-body">
-                                        <h6 class="card-title">Итого:</h6>
+                                        <h6 class="card-title fw-bold text-dark">Итого:</h6>
                                         <div class="d-flex justify-content-between mb-2">
-                                            <span>Товары:</span>
-                                            <span id="cartSubtotal">0 руб.</span>
+                                            <span class="text-muted">Товары:</span>
+                                            <span id="cartSubtotal" class="fw-bold">0 руб.</span>
                                         </div>
                                         <div class="d-flex justify-content-between mb-2">
-                                            <span>Доставка:</span>
-                                            <span id="cartShipping">0 руб.</span>
+                                            <span class="text-muted">Доставка:</span>
+                                            <span id="cartShipping" class="fw-bold">0 руб.</span>
                                         </div>
                                         <hr>
-                                        <div class="d-flex justify-content-between fw-bold">
-                                            <span>Всего:</span>
-                                            <span id="cartTotal">0 руб.</span>
+                                        <div class="d-flex justify-content-between fw-bold fs-5">
+                                            <span class="text-dark">Всего:</span>
+                                            <span id="cartTotal" class="text-primary">0 руб.</span>
                                         </div>
                                         <button class="btn btn-success w-100 mt-3" id="checkoutBtn" disabled>
                                             <i class="bi bi-bag-check me-2"></i>Оформить заказ
@@ -328,12 +407,21 @@
                         <p class="mb-0">&copy; 2025 Семестровая работа. Все права защищены.</p>
                     </div>
                     <div class="col-md-6 text-md-end">
-                        <a href="contacts.html" class="text-white text-decoration-none me-3">Контакты</a>
-                        <a href="goods_v1.html" class="text-white text-decoration-none">Старая версия</a>
+                        <a href="contacts.html" class="text-white text-decoration-none me-3">
+                            <i class="bi bi-telephone me-1"></i>Контакты
+                        </a>
+                        <a href="goods_v1.html" class="text-white text-decoration-none">
+                            <i class="bi bi-clock-history me-1"></i>Старая версия
+                        </a>
                     </div>
                 </div>
             </div>
         </footer>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <!-- Toasts will be inserted here dynamically -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -341,26 +429,33 @@
         let cart = [];
         let cartCount = 0;
 
-        function addToCart(button, productId) {
+        function addToCart(button, productId, productName, productPrice) {
             const productCard = button.closest('.col-xl-4');
-            const productName = productCard.querySelector('.card-title').textContent;
-            const productPrice = parseFloat(productCard.querySelector('.text-primary').textContent.replace(' руб.', '').replace(/\s/g, ''));
             
             // Add to cart
-            cart.push({
+            const cartItem = {
                 id: productId,
                 name: productName,
-                price: productPrice
-            });
+                price: productPrice,
+                quantity: 1
+            };
             
-            cartCount++;
+            // Check if item already in cart
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push(cartItem);
+            }
+            
+            cartCount = cart.reduce((total, item) => total + item.quantity, 0);
             updateCartUI();
             
             // Visual feedback
             productCard.classList.add('selected-product');
             button.innerHTML = '<i class="bi bi-check-lg me-2"></i>Добавлено';
-            button.classList.remove('btn-primary');
-            button.classList.add('btn-success');
+            button.classList.remove('btn-primary', 'btn-success');
+            button.classList.add('btn-secondary');
             button.disabled = true;
             
             // Show toast notification
@@ -368,11 +463,11 @@
         }
 
         function updateCartUI() {
-            // Update cart count
+            // Update cart count in header
             document.getElementById('cartCount').textContent = `Корзина: ${cartCount}`;
             
             // Update cart summary
-            const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             const shipping = subtotal > 0 ? 500 : 0; // 500 руб. доставка
             const total = subtotal + shipping;
             
@@ -380,7 +475,7 @@
             document.getElementById('cartShipping').textContent = `${shipping.toLocaleString()} руб.`;
             document.getElementById('cartTotal').textContent = `${total.toLocaleString()} руб.`;
             
-            // Show/hide empty message
+            // Show/hide empty message and populate cart items
             const emptyMessage = document.getElementById('cartEmptyMessage');
             const cartItems = document.getElementById('cartItems');
             const checkoutBtn = document.getElementById('checkoutBtn');
@@ -392,9 +487,17 @@
                 
                 // Populate cart items
                 cartItems.innerHTML = cart.map(item => `
-                    <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
-                        <span>${item.name}</span>
-                        <span class="fw-bold">${item.price.toLocaleString()} руб.</span>
+                    <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+                        <div class="flex-grow-1">
+                            <div class="fw-bold">${item.name}</div>
+                            <div class="small text-muted">${item.price.toLocaleString()} руб. × ${item.quantity}</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="fw-bold text-primary">${(item.price * item.quantity).toLocaleString()} руб.</span>
+                            <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(${item.id})">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
                     </div>
                 `).join('');
             } else {
@@ -404,21 +507,43 @@
             }
         }
 
-        function showToast(message) {
-            // Create toast element
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            updateCartUI();
+            
+            // Reset product card appearance
+            const productCard = document.querySelector(`[data-category][onclick*="${productId}"]`);
+            if (productCard) {
+                productCard.classList.remove('selected-product');
+                const button = productCard.querySelector('.cart-btn');
+                button.innerHTML = '<i class="bi bi-cart-plus me-2"></i>В корзину';
+                button.classList.remove('btn-secondary');
+                button.classList.add('btn-primary');
+                button.disabled = false;
+            }
+            
+            showToast('Товар удален из корзины!', 'danger');
+        }
+
+        function showToast(message, type = 'success') {
+            const toastContainer = document.querySelector('.toast-container');
+            const toastId = 'toast-' + Date.now();
+            
             const toast = document.createElement('div');
-            toast.className = 'toast align-items-center text-white bg-success border-0 position-fixed bottom-0 end-0 m-3';
-            toast.style.zIndex = '1055';
+            toast.className = `toast align-items-center text-white bg-${type} border-0`;
+            toast.setAttribute('id', toastId);
             toast.innerHTML = `
                 <div class="d-flex">
                     <div class="toast-body">
+                        <i class="bi ${type === 'success' ? 'bi-check-circle' : 'bi-exclamation-circle'} me-2"></i>
                         ${message}
                     </div>
                     <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
                 </div>
             `;
             
-            document.body.appendChild(toast);
+            toastContainer.appendChild(toast);
             
             // Initialize and show toast
             const bsToast = new bootstrap.Toast(toast);
@@ -426,7 +551,7 @@
             
             // Remove toast after it's hidden
             toast.addEventListener('hidden.bs.toast', () => {
-                document.body.removeChild(toast);
+                toast.remove();
             });
         }
 
@@ -434,38 +559,87 @@
         document.addEventListener('DOMContentLoaded', function() {
             const categoryFilter = document.getElementById('categoryFilter');
             const priceFilter = document.getElementById('priceFilter');
+            const sortFilter = document.getElementById('sortFilter');
             const products = document.querySelectorAll('#productsGrid .col-xl-4');
             
-            function filterProducts() {
+            function filterAndSortProducts() {
                 const categoryValue = categoryFilter.value;
                 const priceValue = priceFilter.value;
+                const sortValue = sortFilter.value;
                 
-                products.forEach(product => {
-                    const productCategory = product.dataset.category;
-                    const productPrice = parseInt(product.dataset.price);
-                    
-                    let categoryMatch = categoryValue === 'all' || productCategory === categoryValue;
-                    let priceMatch = true;
-                    
-                    if (priceValue !== 'all') {
+                let filteredProducts = Array.from(products);
+                
+                // Filter by category
+                if (categoryValue !== 'all') {
+                    filteredProducts = filteredProducts.filter(product => 
+                        product.dataset.category === categoryValue
+                    );
+                }
+                
+                // Filter by price
+                if (priceValue !== 'all') {
+                    filteredProducts = filteredProducts.filter(product => {
+                        const productPrice = parseInt(product.dataset.price);
                         const [min, max] = priceValue.split('-').map(val => {
                             if (val.endsWith('+')) return parseInt(val) - 1;
                             return parseInt(val);
                         });
                         
                         if (priceValue.endsWith('+')) {
-                            priceMatch = productPrice > min;
+                            return productPrice > min;
                         } else {
-                            priceMatch = productPrice >= min && productPrice <= max;
+                            return productPrice >= min && productPrice <= max;
                         }
-                    }
-                    
-                    if (categoryMatch && priceMatch) {
-                        product.style.display = 'block';
-                    } else {
-                        product.style.display = 'none';
-                    }
-                });
+                    });
+                }
+                
+                // Sort products
+                if (sortValue === 'price-low') {
+                    filteredProducts.sort((a, b) => parseInt(a.dataset.price) - parseInt(b.dataset.price));
+                } else if (sortValue === 'price-high') {
+                    filteredProducts.sort((a, b) => parseInt(b.dataset.price) - parseInt(a.dataset.price));
+                } else if (sortValue === 'name') {
+                    filteredProducts.sort((a, b) => {
+                        const nameA = a.querySelector('.card-title').textContent.toLowerCase();
+                        const nameB = b.querySelector('.card-title').textContent.toLowerCase();
+                        return nameA.localeCompare(nameB);
+                    });
+                }
+                
+                // Hide all products first
+                products.forEach(product => product.style.display = 'none');
+                
+                // Show filtered and sorted products
+                filteredProducts.forEach(product => product.style.display = 'block');
             }
             
-            categoryFilter.addEventListener('change', filter
+            categoryFilter.addEventListener('change', filterAndSortProducts);
+            priceFilter.addEventListener('change', filterAndSortProducts);
+            sortFilter.addEventListener('change', filterAndSortProducts);
+            
+            // Initialize checkout button
+            document.getElementById('checkoutBtn').addEventListener('click', function() {
+                if (cartCount > 0) {
+                    showToast(`Заказ оформлен! Товаров: ${cartCount}, Сумма: ${document.getElementById('cartTotal').textContent}`, 'success');
+                    // Reset cart
+                    cart = [];
+                    cartCount = 0;
+                    updateCartUI();
+                    
+                    // Reset all product cards
+                    products.forEach(product => {
+                        product.classList.remove('selected-product');
+                        const button = product.querySelector('.cart-btn');
+                        if (button) {
+                            button.innerHTML = '<i class="bi bi-cart-plus me-2"></i>В корзину';
+                            button.classList.remove('btn-secondary');
+                            button.classList.add('btn-primary');
+                            button.disabled = false;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
